@@ -18,6 +18,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.use(logger)
+// TODO: add user route for pre-connection user authentication
 // app.use("/user", userRouter)
 app.use("/offers", offerRouter)
 app.use("/answers", answerRouter)
