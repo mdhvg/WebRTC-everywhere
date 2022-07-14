@@ -36,6 +36,7 @@ class PeerConnection {
     }
 
     async recieveChannel() {
+        // when new iceCandidates are found, update this.selfOffer
         this.peer.onicecandidate = e => {
             if (e.candidate !== null) {
                 console.log("Got Answer 🧊")
@@ -55,6 +56,7 @@ class PeerConnection {
         }
     }
     async sendChannel() {
+        // when new iceCandidates are found, update this.selfAnswer
         this.peer.onicecandidate = e => {
             if (e.candidate !== null) {
                 console.log("Got Offer 🧊")
@@ -90,7 +92,7 @@ class PeerConnection {
                 // set answer as local description
                 this.peer.setLocalDescription(this.selfAnswer)
 
-                // post answer
+                // post answer after gathering all possible ice candidates
                 this.peer.onicegatheringstatechange = e => {
                     if (this.peer.iceGatheringState === "complete") {
                         postSDP("answers", this.selfId, this.selfAnswer)
@@ -104,13 +106,13 @@ class PeerConnection {
                 this.dataChannel = this.peer.createDataChannel("dc");
                 this.sendChannel()
 
-                // make offer
+                // create offer
                 this.selfOffer = await this.peer.createOffer();
 
-                // set it as local description
+                // set offer as local description
                 this.peer.setLocalDescription(this.selfOffer)
 
-                // send it to server
+                // post offer after gathering all possible ice candidates
                 this.peer.onicegatheringstatechange = e => {
                     if (this.peer.iceGatheringState === "complete") {
                         postSDP("offers", this.selfId, this.selfOffer)
