@@ -24,7 +24,6 @@ class PeerConnection {
     // this.listen args: dir("offers" or "answers"), id(selfId or partnerId), res(variable to store received SDP to)
     async listen(dir, id) {
         return new Promise(async (resolveListen) => {
-            console.log(this.listenOut?.result, this.selfId)
             while (true) {
                 if (this.listenOut?.result) {
                     resolveListen()
@@ -43,10 +42,8 @@ class PeerConnection {
                 this.selfAnswer = this.peer.localDescription
             }
         }
-        console.log(this.dataChannel?.readyState)
         this.peer.ondatachannel = dc => {
             this.dataChannel = dc.channel;
-            console.log(this.dataChannel)
             this.dataChannel.onopen = event => {
                 this.dataChannel.send(`Hello from ${this.selfId}`)
             }
@@ -95,7 +92,6 @@ class PeerConnection {
 
                 // post answer
                 this.peer.onicegatheringstatechange = e => {
-                    console.log("change")
                     if (this.peer.iceGatheringState === "complete") {
                         postSDP("answers", this.selfId, this.selfAnswer)
                     }
@@ -116,7 +112,6 @@ class PeerConnection {
 
                 // send it to server
                 this.peer.onicegatheringstatechange = e => {
-                    console.log("change")
                     if (this.peer.iceGatheringState === "complete") {
                         postSDP("offers", this.selfId, this.selfOffer)
                     }
