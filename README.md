@@ -43,7 +43,7 @@ npm i
 
 ## Usage
 
-- After setting everything up, you need to run `node app` in the base directory and json-server in 2 seperate terminals.
+- After setting everything up, you need to run `node peerConn` in the base directory and `node app` in json-server directory in 2 seperate terminals.
 
 - You should end up with 2 peers pinging each other every 10 seconds
 
