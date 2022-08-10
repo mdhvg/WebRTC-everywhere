@@ -60,7 +60,7 @@ npm i -g node-gyp node-pre=gyp
 
 - [x] Fix spelling of RECEIVE everywhere (The 'e' before 'i')
 - [x] Change to ESM modules
-- [ ] Make a single file sharing and auto-receiving function (Using the DataChannel class)
+- [x] Make a single file sharing and auto-receiving function (Using the DataChannel class)
 - [ ] Make a CLI
 - [ ] Add a chat feature
 - [ ] Make the cli inputs event based instead of async-await
