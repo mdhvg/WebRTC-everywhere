@@ -53,7 +53,7 @@ npm i
 - If npm throws an error like: `'node-pre-gyp' is not an internal or external command` just run
 
 ```
-npm i -g node-gyp node-pre=gyp
+npm i -g node-gyp node-pre-gyp
 ```
 
 ## To-Do
