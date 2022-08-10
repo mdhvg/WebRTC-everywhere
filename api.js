@@ -1,8 +1,11 @@
-let needle = require("needle");
+// let needle = require("needle");
+import needle from 'needle';
+
+const SERVER_IP = "172.31.150.126"
 
 async function postSDP(dir, id, sdp) {
     needle("post",
-        `http://192.168.29.69:3000/${dir}/new`,
+        `http://${SERVER_IP}:3000/${dir}/new`,
         JSON.stringify({ id: id, content: sdp }), {
         headers: {
             'Content-Type': 'application/json'
@@ -13,7 +16,7 @@ async function postSDP(dir, id, sdp) {
 async function getSDP(dir, id, t, resolve, duration) {
     try {
         let response = await needle("post",
-            `http://192.168.29.69:3000/${dir}/get`,
+            `http://${SERVER_IP}:3000/${dir}/get`,
             JSON.stringify({ id: id }), {
             headers: {
                 'Content-Type': 'application/json'
@@ -24,8 +27,8 @@ async function getSDP(dir, id, t, resolve, duration) {
     }
     catch (error) {
         console.log(error)
-        setTimeout(resolve, duration)
+        resolve()
     }
 }
 
-module.exports = { postSDP, getSDP }
+export { postSDP, getSDP }
