@@ -1,7 +1,6 @@
 # **WebRTC-everywhere**
 
 This is **just** an implementation of webRTC in node.js which can be modified for any use case.
-</br>
 
 # Getting Started
 
@@ -43,9 +42,10 @@ npm i
 
 ## Usage
 
+- Set your machine's IP as `SERVER_IP` in the api.js file.
 - After setting everything up, you need to run `node peerConn` in the base directory and `node app` in json-server directory in 2 seperate terminals.
-
-- You should end up with 2 peers pinging each other every 10 seconds
+- Wait until the prompt for sending file or text appears in the CLI.
+- Select whatever you want to send.
 
 ## Troubleshooting
 
