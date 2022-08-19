@@ -1,0 +1,3 @@
+[submodule "webrtc-server"]
+	path = webrtc-server
+	url = https://github.com/MadhavGoyal-6/WebRTC-server.git
