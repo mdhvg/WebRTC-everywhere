@@ -13,7 +13,7 @@ This is **just** an implementation of webRTC in node.js which can be modified fo
 npm i
 ```
 
-- Setup directory structure in json-server folder
+- Setup directory structure in webrtc-server folder
 
 ```bash
 mkdir Data
@@ -23,7 +23,7 @@ cd Data && mkdir Answers Offers
 - The directory structure should be something like:
 
 ```
-json-server
+webrtc-server
 ├───Data
 │   ├───Answers
 │   └───Offers
@@ -38,12 +38,12 @@ json-server
 npm i
 ```
 
-(In json-server folder)
+(In webrtc-server folder)
 
 ## Usage
 
 - Set your machine's IP as `SERVER_IP` in the api.js file.
-- After setting everything up, you need to run `node peerConn` in the base directory and `node app` in json-server directory in 2 seperate terminals.
+- After setting everything up, you need to run `node peerConn` in the base directory and `node app` in webrtc-server directory in 2 seperate terminals.
 - Wait until the prompt for sending file or text appears in the CLI.
 - Select whatever you want to send.
 
