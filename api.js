@@ -1,7 +1,8 @@
 // let needle = require("needle");
 import needle from 'needle';
+import 'dotenv/config'
 
-const SERVER_IP = "172.31.150.126"
+const SERVER_IP = process.env.SERVER_IP
 
 async function postSDP(dir, id, sdp) {
     needle("post",
