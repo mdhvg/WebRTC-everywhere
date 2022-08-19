@@ -7,9 +7,13 @@ This is **just** an implementation of webRTC in node.js which can be modified fo
 ## Installation
 
 - Clone this repo
+```bash
+git clone --recursive https://github.com/MadhavGoyal-6/WebRTC-everywhere.git
+```
+
 - Install client-side dependencies
 
-```
+```bash
 npm i
 ```
 
